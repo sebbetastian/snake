@@ -138,8 +138,6 @@ function changeDirection(KeyboardEvent) {
     changingDirection = true;
     snakeDirections();
     const keyPressed = KeyboardEvent.key;
-    console.log(keyPressed);
-
     if (keyPressed === 'ArrowUp' || keyPressed === 'w' && !goingDown){    
         directionX = 0; 
         directionY = -10;
@@ -160,7 +158,7 @@ function changeDirection(KeyboardEvent) {
         directionY = 0;
     }
 }
-//moves the snake, makes it eat AND increments the score
+//moves / builds the snake, makes it eat AND increments the score
 function moveSnake() {
     const head = {x: snake[0].x + directionX, y: snake[0].y + directionY};
     snake.unshift(head);
