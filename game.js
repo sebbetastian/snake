@@ -18,16 +18,15 @@ let changingDirection = false;
 let foodX;
 let foodY;
 let score = 0;
+let speed = 150; //fasst ssssnakes only!
 //gets the html canvas element
 const gameCanvas = document.getElementById('game-canvas');
 const ctx  = gameCanvas.getContext('2d');
 //inits the entire game
 main();
 genFood();
-
 //adds event handlers to keyboard controls
-document.addEventListener('keydown', change_direction)
-
+document.addEventListener('keydown', changeDirection)
 //adds event handlers to touch controls
 up.addEventListener('click', () => {
     if (changingDirection) return;
@@ -38,7 +37,6 @@ up.addEventListener('click', () => {
         directionY = -10;
     }
 })
-
 down.addEventListener('click', () => {
     if (changingDirection) return;
     changingDirection = true;
@@ -48,7 +46,6 @@ down.addEventListener('click', () => {
         directionY = 10;
     }
 })
-
 left.addEventListener('click', () => {
     if (changingDirection) return;
     changingDirection = true;
@@ -58,7 +55,6 @@ left.addEventListener('click', () => {
         directionY = 0;
     }
 })
-
 right.addEventListener('click', () => {
     if (changingDirection) return;
     changingDirection = true;
@@ -78,7 +74,7 @@ function main() {
         moveSnake();
         drawSnake();
         main();
-    }, 150);//fasst ssssnakes only!
+    }, speed);
 }
 //resets the game
 function clearCanvas() {
@@ -98,7 +94,6 @@ function drawFood() {
     ctx.fillRect(foodX, foodY, 10, 10);
     ctx.strokeRect(foodX, foodY, 10, 10);
 }
-
 //drawing the snake parts
 function drawSnakeBlocks(snakePart) {
     ctx.fillStyle = 'blueviolet';
@@ -130,6 +125,7 @@ function genFood() {
         if (has_eaten) genFood();
     })
 }
+// snake directions
 function snakeDirections() {
     goingUp = directionY === -10;
     goingDown = directionY === 10;
@@ -137,7 +133,7 @@ function snakeDirections() {
     goingLeft = directionX === -10;
 }
 //keyboard controls
-function change_direction(KeyboardEvent) {    
+function changeDirection(KeyboardEvent) {    
     if (changingDirection) return;
     changingDirection = true;
     snakeDirections();
@@ -147,12 +143,12 @@ function change_direction(KeyboardEvent) {
     if (keyPressed === 'ArrowUp' || keyPressed === 'w' && !goingDown){    
         directionX = 0; 
         directionY = -10;
-     }
+    }
  
     if (keyPressed === 'ArrowDown' || keyPressed === 's' && !goingUp) {    
         directionX = 0;
         directionY = 10;
-     }
+    }
  
     if (keyPressed === 'ArrowLeft' || keyPressed === 'a' && !goingRight){    
         directionX = -10;
