@@ -3,7 +3,7 @@
     padding: 0%;
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    touch-action: none;
+    touch-action: manipulation;
 }
 
 .canvas-container {
@@ -12,6 +12,7 @@
     display: grid;
     justify-content: center;
     align-items: center;
+    touch-action: manipulation;
 }
 
 .flex-container {
