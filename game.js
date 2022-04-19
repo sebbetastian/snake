@@ -72,7 +72,7 @@ function main() {
         moveSnake();
         drawSnake();
         main();
-    }, 200)
+    }, 150);
 }
 
 function clearCanvas() {
