@@ -32,7 +32,7 @@ document.addEventListener('keydown', change_direction)
 up.addEventListener('click', () => {
     if (changingDirection) return;
     changingDirection = true;
-    const goingDown = directionY === 10;
+    snakeDirections();
     if (!goingDown) {
         directionX = 0; 
         directionY = -10;
@@ -42,7 +42,7 @@ up.addEventListener('click', () => {
 down.addEventListener('click', () => {
     if (changingDirection) return;
     changingDirection = true;
-    const goingUp = directionY === -10;
+    snakeDirections();
     if (!goingUp) {
         directionX = 0;
         directionY = 10;
@@ -52,7 +52,7 @@ down.addEventListener('click', () => {
 left.addEventListener('click', () => {
     if (changingDirection) return;
     changingDirection = true;
-    const goingRight = directionX === 10;
+    snakeDirections();
     if (!goingRight) {
         directionX = -10;
         directionY = 0;
@@ -62,7 +62,7 @@ left.addEventListener('click', () => {
 right.addEventListener('click', () => {
     if (changingDirection) return;
     changingDirection = true;
-    const goingLeft = directionX === -10;
+    snakeDirections();
     if (!goingLeft) {
         directionX = 10;
         directionY = 0;
@@ -130,16 +130,19 @@ function genFood() {
         if (has_eaten) genFood();
     })
 }
+function snakeDirections() {
+    goingUp = directionY === -10;
+    goingDown = directionY === 10;
+    goingRight = directionX === 10;  
+    goingLeft = directionX === -10;
+}
 //keyboard controls
 function change_direction(KeyboardEvent) {    
     if (changingDirection) return;
     changingDirection = true;
+    snakeDirections();
     const keyPressed = KeyboardEvent.key;
     console.log(keyPressed);
-    const goingUp = directionY === -10;
-    const goingDown = directionY === 10;
-    const goingRight = directionX === 10;  
-    const goingLeft = directionX === -10;
 
     if (keyPressed === 'ArrowUp' || keyPressed === 'w' && !goingDown){    
         directionX = 0; 
