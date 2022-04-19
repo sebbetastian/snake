@@ -28,7 +28,7 @@ genFood();
 //adds event handlers to keyboard controls
 document.addEventListener('keydown', change_direction)
 
-//adds event handlesrs to touch controls
+//adds event handlers to touch controls
 up.addEventListener('click', () => {
     const goingDown = directionY === 10;
     if (!goingDown) {
