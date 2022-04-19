@@ -4,6 +4,7 @@
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     touch-action: manipulation;
+    overflow: -moz-hidden-unscrollable;
 }
 
 .canvas-container {
