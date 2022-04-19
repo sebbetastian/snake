@@ -126,36 +126,32 @@ function genFood() {
 function change_direction(KeyboardEvent) {    
     if (changingDirection) return;
     changingDirection = true;
-   const keyPressed = KeyboardEvent.key;
-   console.log(keyPressed);
-   const goingUp = directionY === -10;
-   const goingDown = directionY === 10;
-   const goingRight = directionX === 10;  
-   const goingLeft = directionX === -10;
- 
-     if (keyPressed === 'ArrowLeft' || keyPressed === 'a' && !goingRight)
-     {    
-          directionX = -10; 
-          directionY = 0;
+    const keyPressed = KeyboardEvent.key;
+    console.log(keyPressed);
+    const goingUp = directionY === -10;
+    const goingDown = directionY === 10;
+    const goingRight = directionX === 10;  
+    const goingLeft = directionX === -10;
+
+    if (keyPressed === 'ArrowUp' || keyPressed === 'w' && !goingDown){    
+        directionX = 0; 
+        directionY = -10;
      }
  
-     if (keyPressed === 'ArrowUp' || keyPressed === 'w' && !goingDown)
-     {    
-          directionX = 0;
-          directionY = -10;
+    if (keyPressed === 'ArrowDown' || keyPressed === 's' && !goingUp) {    
+        directionX = 0;
+        directionY = 10;
      }
  
-     if (keyPressed === 'ArrowRight' || keyPressed === 'd' && !goingLeft)
-     {    
-          directionX = 10;
-          directionY = 0;
-     }
+    if (keyPressed === 'ArrowLeft' || keyPressed === 'a' && !goingRight){    
+        directionX = -10;
+        directionY = 0;
+    }
  
-     if (keyPressed === 'ArrowDown' || keyPressed === 's' && !goingUp)
-     {    
-          directionX = 0;
-          directionY = 10;
-     }
+    if (keyPressed === 'ArrowRight' || keyPressed === 'd' && !goingLeft){    
+        directionX = 10; 
+        directionY = 0;
+    }
 }
 //moves the snake, makes it eat AND increments the score
 function moveSnake() {
