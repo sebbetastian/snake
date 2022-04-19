@@ -30,6 +30,8 @@ document.addEventListener('keydown', change_direction)
 
 //adds event handlers to touch controls
 up.addEventListener('click', () => {
+    if (changingDirection) return;
+    changingDirection = true;
     const goingDown = directionY === 10;
     if (!goingDown) {
         directionX = 0; 
@@ -38,6 +40,8 @@ up.addEventListener('click', () => {
 })
 
 down.addEventListener('click', () => {
+    if (changingDirection) return;
+    changingDirection = true;
     const goingUp = directionY === -10;
     if (!goingUp) {
         directionX = 0;
@@ -46,6 +50,8 @@ down.addEventListener('click', () => {
 })
 
 left.addEventListener('click', () => {
+    if (changingDirection) return;
+    changingDirection = true;
     const goingRight = directionX === 10;
     if (!goingRight) {
         directionX = -10;
@@ -54,6 +60,8 @@ left.addEventListener('click', () => {
 })
 
 right.addEventListener('click', () => {
+    if (changingDirection) return;
+    changingDirection = true;
     const goingLeft = directionX === -10;
     if (!goingLeft) {
         directionX = 10;
