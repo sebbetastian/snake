@@ -74,6 +74,8 @@
     border: 1px solid black;
 }
 
-.button:hover {
-    background-color: rgb(108, 33, 177);
-}
+@media (hover) {
+    .button:hover {
+        background-color: rgb(108, 33, 177);
+    }
+  }
